@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow internal folders (if any)
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /api/
+
+# Sitemap link (very important)
+Sitemap: https://genzeetech.com/sitemap.xml
