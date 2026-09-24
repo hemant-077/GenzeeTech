@@ -1,45 +1,89 @@
 # GenzeeTech
 
-GenzeeTech is a modern business website built with React + Vite on the frontend and Spring Boot on the backend. It includes a marketing landing page, service pages, blog and technology sections, contact form submission, and email notifications.
+GenzeeTech is a business website built with a React frontend and a Java Spring Boot backend. The project includes a landing page, service pages, blog and technology sections, contact form handling, and email notifications.
+
+## What this project does
+
+This website is designed to present GenzeeTech as a digital services company. It shows company information, services, case studies, technology stack, blog content, and a contact section where visitors can send inquiries.
+
+When a user submits the contact form:
+
+1. The frontend collects the form data
+2. The backend receives the request
+3. The message is saved in MySQL
+4. An email is sent through Gmail SMTP
+5. The frontend receives a success or error response
 
 ## Tech Stack
 
-- Frontend: React, Vite, Tailwind CSS, Framer Motion
-- Backend: Java, Spring Boot, MySQL
-- Email: SMTP via Gmail App Password
+- Frontend: React, Vite, JavaScript, CSS
+- Backend: Java, Spring Boot
+- Database: MySQL
+- Email: Gmail SMTP using App Password
 
 ## Project Structure
 
-- `src/` – frontend application
-- `backend/` – Java Spring Boot API
-- `public/` – static public assets
-- `backend/.env.example` – backend environment variable template
+- `frontend/` – React + Vite frontend app
+- `frontend/src/` – page and component files
+- `frontend/public/` – static assets and public files
+- `frontend/index.html` – Vite entry file
+- `backend/` – Spring Boot backend project
+- `backend/src/main/java/` – Java source code
+- `backend/src/main/resources/` – application configuration
+- `backend/.env.example` – example environment variables for backend secrets
+- `README.md` – project overview and setup
 
-## Local Development
+## Frontend overview
+
+The frontend is responsible for the part users see and interact with. It contains:
+
+- landing page sections
+- service descriptions
+- technology showcase
+- blog links
+- testimonials and pricing blocks
+- contact form UI
+
+The frontend communicates with the backend through API requests.
+
+## Backend overview
+
+The backend handles the server-side logic. It includes:
+
+- API endpoints for contact submission
+- data validation
+- database storage
+- email sending logic
+- CORS configuration for frontend access
+
+## Local setup
 
 ### 1) Install frontend dependencies
 
 ```bash
+cd frontend
 npm install
 ```
 
-### 2) Configure backend environment
-
-Copy the example file and fill in your real local values:
+### 2) Run the frontend
 
 ```bash
-cp backend/.env.example backend/.env
-```
-
-Then update the values in `backend/.env` with your own MySQL and Gmail credentials. Do not commit `.env` files.
-
-### 3) Start frontend
-
-```bash
+cd frontend
 npm run dev
 ```
 
-### 4) Start backend
+### 3) Configure backend environment variables
+
+Create a local backend environment file:
+
+```bash
+cd backend
+cp .env.example .env
+```
+
+Then update the values in `backend/.env` with your own MySQL and Gmail information. Do not commit real credentials to Git.
+
+### 4) Run the backend
 
 ```bash
 cd backend
@@ -48,15 +92,17 @@ mvn spring-boot:run
 
 ## Security
 
-- Never commit real credentials to Git
-- Use `.env` files only locally
-- For Gmail, use an App Password instead of your normal account password
-- Keep secrets in environment variables or your deployment platform secret manager
+This project keeps sensitive values out of the repository.
 
-## Production Notes
+- Never commit real passwords or API secrets
+- Keep credentials in local `.env` files
+- Use Gmail App Password instead of the normal Google password
+- Store production values in environment variables or a secret manager
 
-Set the frontend API URL and backend CORS origin according to your deployment environment, and keep database and email credentials in a secure hosting environment.
+## Production note
+
+For deployment, set the proper frontend API URL and backend CORS allowed origins. Keep database and email credentials in a secure hosting environment rather than in code.
 
 ## License
 
-This project is for GenzeeTech website development and internal business use.
+This project is intended for GenzeeTech website development and business use.
